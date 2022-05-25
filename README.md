@@ -6,10 +6,7 @@ The even better news is that I've waded my way through the API docs and created 
 
 
 ## TLDR:
-
-[](Screenshot%201.png)
-
-
+![](Screenshot%201.png)
 ```
 import requests
 from cleverdict import CleverDict
