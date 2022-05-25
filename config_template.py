@@ -19,4 +19,4 @@ HEADERS = {
     "Content-Type": "application/json",
 }
 TEST_MESSAGE = "*TEST* _*TEST*_ TEST _TEST_\n"
-TEST_URL ="https://twitter.com/AWSOM_solutions"
+TEST_URL = "https://twitter.com/AWSOM_solutions"

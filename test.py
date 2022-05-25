@@ -1,7 +1,7 @@
 import pytest
 from whatsapp import *
 
-class Test_core_functionality():
+class Test_core_functionality:
     def test_send(self):
         wa = Whatsapp()
         assert wa.response.status_code == 200
