@@ -14,7 +14,7 @@ class Whatsapp:
         Arguments
         ---------
         contact (str):
-            numeric phone number starting with country code; no "+" or leading 0
+            recipient phone number starting with country code; no + or leading 0
         content_type (str):
             text[default]|audio|contacts|document|image
             template|video|sticker|location|interactive

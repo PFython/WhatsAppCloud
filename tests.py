@@ -3,9 +3,24 @@ from whatsapp import Whatsapp, CleverDict, CONTACTS, TEST_MESSAGE, TEST_URL
 
 
 class Test_core_functionality:
-    def test_default_send(self):
+    def test_init_default_send(self):
         wa = Whatsapp()
         assert wa.response.status_code == 200
+
+    def test_init_no_preview(self):
+        autosend = True
+        wa = Whatsapp(preview_url=False, autosend=autosend)
+        assert not wa.data.text.preview_url
+
+    def test_init_body_text(self):
+        autosend = True
+        wa = Whatsapp(body="Another test message", autosend=autosend)
+        assert wa.data == {
+            "messaging_product": "whatsapp",
+            "to": CONTACTS[0],
+            "type": "text",
+            "text": {"preview_url": True, "body": "Another test message"},
+        }
 
     def test_cleverdict_aliases(self):
         autosend = False
@@ -21,22 +36,7 @@ class Test_core_functionality:
             assert wa.response.status_code
             assert wa.response.request.body
 
-    def test_body_text(self):
-        autosend = True
-        wa = Whatsapp(body="Another test message", autosend=autosend)
-        assert wa.data == {
-            "messaging_product": "whatsapp",
-            "to": CONTACTS[0],
-            "type": "text",
-            "text": {"preview_url": True, "body": "Another test message"},
-        }
-
-    def test_no_preview(self):
-        autosend = True
-        wa = Whatsapp(preview_url=False, autosend=autosend)
-        assert not wa.data.text.preview_url
-
-    def test_new_contact(self):
+    def test_init_other_contact(self):
         autosend = False
         wa = Whatsapp(CONTACTS[1], autosend=autosend)
         assert wa.data.to == CONTACTS[1]
@@ -63,6 +63,7 @@ class Test_other_message_types:
             "template": {"name": "hello_world", "language": {"code": "en_US"}},
         }
 
+    def test_template_other_contact(self):
         autosend = False
         wa = Whatsapp.template(
             contact=CONTACTS[1],
@@ -91,6 +92,7 @@ class Test_other_message_types:
             },
         }
 
+    def test_location_other_contact(self):
         autosend = False
         wa = Whatsapp.location(
             contact=CONTACTS[1],
@@ -106,27 +108,30 @@ class Test_other_message_types:
             "address": "The Shire",
         }
 
-    def test_image(self):
+    def test_default_image(self):
         wa = Whatsapp.image(caption="_*Antigravity*_")
         assert wa.data.image,link == 'https://imgs.xkcd.com/comics/python.png'
 
         link = "https://raw.githubusercontent.com/PFython/cleverdict/master/resources/cleverdict.png"
 
+    def test_supplied_image(self):
         wa = Whatsapp.image(link, caption="CleverDict logo", autosend=True)
         assert wa.data.image == {'link': 'https://raw.githubusercontent.com/PFython/cleverdict/master/resources/cleverdict.png', 'caption': 'CleverDict logo'}
 
+    def test_image_other_contact(self):
         autosend = False
         wa = Whatsapp.image(link, CONTACTS[1], "CleverDict logo", autosend=autosend)
         assert wa.data.to == CONTACTS[1]
         assert wa.data.image.link == 'https://raw.githubusercontent.com/PFython/cleverdict/master/resources/cleverdict.png'
         wa.data.image.caption == 'CleverDict logo'
 
-    def test_document(self):
+    def test_default_document(self):
         wa = Whatsapp.document()
         assert wa.data.document.link == 'https://binaries.templates.cdn.office.net/support/templates/en-gb/tf00112764_win32.dotx'
 
         # TODO: Filename
 
+    def test_document_other_contact(self):
         autosend=False
         wa = Whatsapp.document("", CONTACTS[1], autosend=autosend)
 
