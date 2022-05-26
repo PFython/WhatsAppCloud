@@ -23,7 +23,7 @@ You'll need to jump through a few (easy) hoops to get set up with Meta before yo
 
 >>> wa = Whatsapp(autosend=False)
 
-# Prepare but don't send a message e.g. for further inspection and processing
+# Create but don't send a message.  Useful when testing/debugging if you don't want to actually spam someone, and also if you intend to do any pre-processing to further refine the message before finalising, or post-processing e.g. to save the message data somewhere, or if you're making a 'factory' to create multiple messages and send them later, perhaps according to a schedule or in response to certain events.
 
 >>> wa.send()
 
@@ -74,7 +74,7 @@ Having gone through the Getting Started instructions, my only other comments bef
 
 - My `Whatsapp` class is intentionally minimalistic i.e. just enough functionality to get you started and send a basic text message with a url and preview.  The whole point of the `kwargs` logic however is to make it [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and easily extensible e.g. if you want to specify more elaborate message types like audio, video, images, buttons, geolocation, and yes, templates if you must.  To do so, you would just provide a new `data` dictionary or keyword arguments.  If that sounds too abstract or you're not familiar with `*args` and `**kwargs`, have a look at `test.py` which I hope will give you some ideas.
 
-- Not essential, but I've made `.data` into a [`cleverdict`](https://github.com/PFython/cleverdict) object.  If you haven't used `cleverdict` before it's well worth checking out... basically it allows Python dictionaries to do everything they normally do but you can also access their values using the oh-so-convenient 'dot' notation e.g. `data.type` rather than `data["type"]` which is one key press for "." rather than five, and generally much more readable too.
+- Not essential, but `self.data` uses my go-to helper class [`CleverDict`](https://github.com/PFython/cleverdict).  `cleverdict` basically adds the ability to access dictionary values using the oh-so-convenient 'dot' notation e.g. `data.type` rather than `data["type"]` which is one keystroke for "." rather than five - yay!  You can easily strip it out if you prefer to be completely dependency free, but `cleverdict` is very lightweight and worth checking out if you haven't used before.
 
 ## And finally...
 
