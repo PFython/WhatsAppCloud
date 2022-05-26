@@ -12,7 +12,7 @@ CONTACTS = [
     "xxxxxxxxxxxx",
 ]
 TOKEN = "x...x"  # 200+ alphanumeric character string
-                 # Check expiry!
+# Check expiry!
 URL = f"https://graph.facebook.com/v13.0/{PHONE_ID}/messages"
 HEADERS = {
     "Authorization": f"Bearer {TOKEN}",
