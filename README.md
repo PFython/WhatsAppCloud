@@ -42,6 +42,12 @@ You can find tests and the latest version of the code to copy/paste/download/for
 
 <a href="https://www.buymeacoffee.com/pfython" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" width="217px" ></a>
 
+Also if you want to use the full range of message types (audio, contacts, documents, images, templates, videos, stickers, locations, and interactive) and don't mind an extra dependency in your code you can import the whole package from PyPI:
+
+```
+python -m pip install whatsapp --upgrade
+```
+> While the
 ____
 
 # More details... if you're still reading!
@@ -60,11 +66,13 @@ Having gone through the Getting Started instructions, my only other comments bef
 
 - Once you've created your five free contact phone numbers I don't think there's a way to change or delete them... so choose carefully and triple check they're correct and properly formatted before you commit.
 
-- As well as your **Token**, you'll just need to copy/paste your **Phone number ID** into `config.py`.  It's different from your actual new (test) phone number, which you won't need.
+- As well as your **Token**, you'll just need to copy/paste your **Phone number ID** and **App ID** into `config.py`. The phone number ID is different from your actual (test) phone number, which the code doesn't need.
 
-- Although the test message in the documentation (sent by CURL) uses a "hello_world" message template as an example, Templates are something of a rat-hole which you can probably ignore.  Presumably if you're reading this you're already thinking about generating messages and content yourself in Python, not fiddling around setting up server-side templates and passing variables into _them_.  The code I'm giving you to copy uses the simpler 'Send Messages' API which you can read more about [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages).
+   > **NB** *For Test Business Accounts, the Token expires every 24 hours so you'll either need to update your `config.py` manually or write a bit of code e.g. with `selenium` to log in to your Facebook Developer Dashboard and refresh and copy the Token.  I've included `APP_ID` and `APP_URL` in `config.py` for that purpose, and if you add your scraping code into `config.py` it should run and update automatically whenever your credentials are imported.*
 
-- As well as verifying each phone number before being able to send to it, you'll need to "Allow" the test account to send to each phone when you receive the first "hello_world" test message AND you'll need to actually reply to it.  It took me ages to work out why I was getting success (200) messages from my API calls but not receiving anything on my receiving phone(s).  This was the reason, but the documentation doesn't mention it!
+- The official way of initiating messages to contacts who have opted in to receive them is via the Template message type which is why the first test message in the documentation (sent by CURL) uses a predefined template called `hello_world`.  The only trouble with this is that you need to set up new Templates and _have them approved_ via the Cloud API dashboard, every time you want a new form of message.  Presumably if you're reading this you're already thinking about generating messages and content yourself in Python, not necessarily fiddling around setting up server-side templates and passing variables into _them_ every time.  So a simpler starting point for understanding the API as a whole, and the basis for my `Whatsapp` class above is the simpler 'Send Messages' API which you can read more about [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages).
+
+- As well as verifying each phone number before being able to send to it, you'll need to "Allow" the test account to send to each phone when you receive the first "hello_world" test message.  That should open the gates to sending more Template messages but you'll probably prefer is to continue the conversation sending non-Template messages - especially if you're doing something like sending notifications and updates to yourself and team programmatically.  In that case you'llD you'll need to actually **send a reply** to the Test Business number, or in other words, initiate the conversation.  It took me ages to work out why I was getting success (200) messages from my API calls but not receiving anything on my receiving phone(s).  This was the reason, but the documentation doesn't mention it!  It also looks like conversations reset themselves every 24 hours, so you'll either need to use Templates after all, or keep the conversation going from the receiver's side every day.  One option for doing this is using the free Business version of the Whatsapp phone app and creating an auto-reply.
 
 - If you want to unlock the full power fo the Whatsapp Cloud API and remove all restrictions, you'll need to create or link to a verified Business Account.  If you do so you currently get 1,000 'conversations' free per month or in other words roughly 33 messages per day - one an hour plus a few spare.  But unless you do something to get kicked off your Test Business Account, _unlimited_ free messages to/from five phone numbers is very generous and fantastic for developers and micro-businesses.
 
@@ -74,7 +82,7 @@ Having gone through the Getting Started instructions, my only other comments bef
 
 - My `Whatsapp` class is intentionally minimalistic i.e. just enough functionality to get you started and send a basic text message with a url and preview.  The whole point of the `kwargs` logic however is to make it [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and easily extensible e.g. if you want to specify more elaborate message types like audio, video, images, buttons, geolocation, and yes, templates if you must.  To do so, you would just provide a new `data` dictionary or keyword arguments.  If that sounds too abstract or you're not familiar with `*args` and `**kwargs`, have a look at `test.py` which I hope will give you some ideas.
 
-- Not essential, but `self.data` uses my go-to helper class [`CleverDict`](https://github.com/PFython/cleverdict).  `cleverdict` basically adds the ability to access dictionary values using the oh-so-convenient 'dot' notation e.g. `data.type` rather than `data["type"]` which is one keystroke for "." rather than five - yay!  You can easily strip it out if you prefer to be completely dependency free, but `cleverdict` is very lightweight and worth checking out if you haven't used before.
+- Not essential, but `self.data` uses my go-to helper class [`CleverDict`](https://github.com/PFython/cleverdict).  It basically adds the ability to get and set dictionary values using the oh-so-convenient 'dot' notation e.g. `data.type` rather than `data["type"]` which is one keystroke for "." rather than five - yay!  You can easily strip it out if you prefer to be completely dependency free, but `cleverdict` is very lightweight and worth checking out if you haven't used before.  I've used it extensively in `tests.py` so if you do strip it out, you may need to refactor those tests too.
 
 ## And finally...
 
