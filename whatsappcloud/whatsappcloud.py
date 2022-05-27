@@ -57,13 +57,17 @@ class Whatsapp:
         preview_url (bool):
             True: Show page preview for any urls included in body.
         """
-        return Whatsapp(contact, "text", body=body, preview_url=preview_url, autosend=autosend)
+        return Whatsapp(
+            contact, "text", body=body, preview_url=preview_url, autosend=autosend
+        )
 
     @staticmethod
     def template(name="", contact="", language_code="", autosend=True):
         name = name or "hello_world"
         language = {"code": language_code or "en_US"}
-        return Whatsapp(contact, "template", name=name, language=language, autosend=autosend)
+        return Whatsapp(
+            contact, "template", name=name, language=language, autosend=autosend
+        )
 
     @staticmethod
     def location(lat="", long="", name="", address="", contact="", autosend=True):
@@ -77,7 +81,10 @@ class Whatsapp:
 
     @staticmethod
     def document(link="", contact="", autosend=True):
-        link = link or "https://binaries.templates.cdn.office.net/support/templates/en-gb/tf00112764_win32.dotx"
+        link = (
+            link
+            or "https://binaries.templates.cdn.office.net/support/templates/en-gb/tf00112764_win32.dotx"
+        )
         return Whatsapp(contact, "document", link=link, autosend=autosend)
 
     @staticmethod
@@ -112,7 +119,6 @@ class Whatsapp:
         # TODO: Work in progress
         return Whatsapp(contact, "video", id=id, caption=caption, autosend=autosend)
 
-
     @staticmethod
     def document_id(id, contact="", autosend=True):
         # TODO: Work in progress
@@ -121,7 +127,9 @@ class Whatsapp:
     @staticmethod
     def sticker(link, contact="", caption="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(contact, "sticker", link=link, caption=caption, autosend=autosend)
+        return Whatsapp(
+            contact, "sticker", link=link, caption=caption, autosend=autosend
+        )
 
     @staticmethod
     def sticker_id(id, contact="", caption="", autosend=True):
@@ -145,69 +153,64 @@ class Whatsapp:
         contact (str): Phone number of the contact you're sending a message to
         """
         # TODO: Work in progress
-        contact_json = contact_json or [{
-            "addresses": [{
-                "street": "STREET",
-                "city": "CITY",
-                "state": "STATE",
-                "zip": "ZIP",
-                "country": "COUNTRY",
-                "country_code": "COUNTRY_CODE",
-                "type": "HOME"
+        contact_json = contact_json or [
+            {
+                "addresses": [
+                    {
+                        "street": "STREET",
+                        "city": "CITY",
+                        "state": "STATE",
+                        "zip": "ZIP",
+                        "country": "COUNTRY",
+                        "country_code": "COUNTRY_CODE",
+                        "type": "HOME",
+                    },
+                    {
+                        "street": "STREET",
+                        "city": "CITY",
+                        "state": "STATE",
+                        "zip": "ZIP",
+                        "country": "COUNTRY",
+                        "country_code": "COUNTRY_CODE",
+                        "type": "WORK",
+                    },
+                ],
+                "birthday": "YEAR_MONTH_DAY",
+                "emails": [
+                    {"email": "EMAIL", "type": "WORK"},
+                    {"email": "EMAIL", "type": "HOME"},
+                ],
+                "name": {
+                    "formatted_name": "NAME",
+                    "first_name": "FIRST_NAME",
+                    "last_name": "LAST_NAME",
+                    "middle_name": "MIDDLE_NAME",
+                    "suffix": "SUFFIX",
+                    "prefix": "PREFIX",
                 },
-                {
-                "street": "STREET",
-                "city": "CITY",
-                "state": "STATE",
-                "zip": "ZIP",
-                "country": "COUNTRY",
-                "country_code": "COUNTRY_CODE",
-                "type": "WORK"
-                }],
-            "birthday": "YEAR_MONTH_DAY",
-            "emails": [{
-                "email": "EMAIL",
-                "type": "WORK"
+                "org": {
+                    "company": "COMPANY",
+                    "department": "DEPARTMENT",
+                    "title": "TITLE",
                 },
-                {
-                "email": "EMAIL",
-                "type": "HOME"
-                }],
-            "name": {
-                "formatted_name": "NAME",
-                "first_name": "FIRST_NAME",
-                "last_name": "LAST_NAME",
-                "middle_name": "MIDDLE_NAME",
-                "suffix": "SUFFIX",
-                "prefix": "PREFIX"
-            },
-            "org": {
-                "company": "COMPANY",
-                "department": "DEPARTMENT",
-                "title": "TITLE"
-            },
-            "phones": [{
-                "phone": "PHONE_NUMBER",
-                "type": "HOME"
-                },
-                {
-                "phone": "PHONE_NUMBER",
-                "type": "WORK",
-                "wa_id": "PHONE_OR_WA_ID"
-                }],
-            "urls": [{
-                "url": "URL",
-                "type": "WORK"
-                },
-                {
-                "url": "URL",
-                "type": "HOME"
-                }]
-            }]
+                "phones": [
+                    {"phone": "PHONE_NUMBER", "type": "HOME"},
+                    {
+                        "phone": "PHONE_NUMBER",
+                        "type": "WORK",
+                        "wa_id": "PHONE_OR_WA_ID",
+                    },
+                ],
+                "urls": [
+                    {"url": "URL", "type": "WORK"},
+                    {"url": "URL", "type": "HOME"},
+                ],
+            }
+        ]
         return Whatsapp(contact, "contacts", contacts=contact_json, autosend=autosend)
 
     @staticmethod
-    def button(button,contact):
+    def button(button, contact):
         kwargs = {
             "type": "list",
             "header": {"type": "text", "text": button.get("header")},
@@ -215,5 +218,6 @@ class Whatsapp:
             "footer": {"text": button.get("footer")},
             "action": button.get("action"),
         }
-        return Whatsapp(contact, "interactive", create_button(button),autosend=autosend, **kwargs)
-
+        return Whatsapp(
+            contact, "interactive", create_button(button), autosend=autosend, **kwargs
+        )

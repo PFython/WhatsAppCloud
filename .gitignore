@@ -1,1 +1,7 @@
 /config.py
+/*.egg-info
+/dist
+/.vscode
+/.pytestr_cache
+/whatsappcloud//__pycache__
+/config.py

@@ -7,14 +7,14 @@ from setuptools import setup
 
 NAME = "whatsappcloud"
 GITHUB_USERNAME = "PFython"
-VERSION = "0.0.1b1"
+VERSION = "0.0.1"
 DESCRIPTION = "API wrapper for Whatsapp Cloud"
 LICENSE = "MIT License"
 AUTHOR = "Pete Fison"
 EMAIL = "peter@awsom.solutions"
 URL = "https://github.com/PFython/whatsappcloud"
-KEYWORDS = "whatsapp, Pfython, API, cloud, business, messaging, Meta, Facebook"
-CLASSIFIERS = "Development Status :: 3 - Alpha, Intended Audience :: Developers, Operating System :: OS Independent, Programming Language :: Python :: 3.10, Programming Language :: Python :: 3.6, Programming Language :: Python :: 3.7, Programming Language :: Python :: 3.8, Programming Language :: Python :: 3.9, License :: OSI Approved :: MIT License"
+KEYWORDS = "Meta, whatsapp, Pfython, API, cloud, business, messaging, Facebook"
+CLASSIFIERS = "Development Status :: 3 - Alpha, Intended Audience :: Developers, Operating System :: OS Independent, Programming Language :: Python :: 3.10, Programming Language :: Python :: 3.6, Programming Language :: Python :: 3.7, Programming Language :: Python :: 3.8, Programming Language :: Python :: 3.9, Topic :: Communications :: Chat, Topic :: Communications :: File Sharing, Topic :: Multimedia, Topic :: Multimedia :: Video, Topic :: Office/Business, Topic :: Office/Business :: Groupware, Topic :: Software Development :: Libraries, Topic :: Software Development :: Libraries :: Application Frameworks, Topic :: Software Development :: Libraries :: Python Modules, Topic :: Utilities, License :: OSI Approved :: MIT License"
 REQUIREMENTS = "cleverdict, requests"
 
 

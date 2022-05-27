@@ -57,10 +57,14 @@ class Whatsapp:
         preview_url (bool):
             True: Show page preview for any urls included in body.
         """
-        return Whatsapp(contact, "text", body=body, preview_url=preview_url, autosend=autosend)
+        return Whatsapp(
+            contact, "text", body=body, preview_url=preview_url, autosend=autosend
+        )
 
     @staticmethod
     def template(name="", contact="", language_code="", autosend=True):
         name = name or "hello_world"
         language = {"code": language_code or "en_US"}
-        return Whatsapp(contact, "template", name=name, language=language, autosend=autosend)
+        return Whatsapp(
+            contact, "template", name=name, language=language, autosend=autosend
+        )

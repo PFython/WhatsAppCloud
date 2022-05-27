@@ -1,13 +1,13 @@
 Metadata-Version: 2.1
 Name: whatsappcloud
-Version: 0.0.1b1
+Version: 0.0.1
 Summary: API wrapper for Whatsapp Cloud
 Home-page: https://github.com/PFython/whatsappcloud
-Download-URL: https://github.com/PFython/whatsappcloud/archive/0.0.1b1.tar.gz
+Download-URL: https://github.com/PFython/whatsappcloud/archive/0.0.1.tar.gz
 Author: Pete Fison
 Author-email: peter@awsom.solutions
 License: MIT License
-Keywords: whatsapp,Pfython,API,cloud,business,messaging,Meta,Facebook
+Keywords: Meta,whatsapp,Pfython,API,cloud,business,messaging,Facebook
 Platform: UNKNOWN
 Classifier: Development Status :: 3 - Alpha
 Classifier: Intended Audience :: Developers
@@ -17,6 +17,16 @@ Classifier: Programming Language :: Python :: 3.6
 Classifier: Programming Language :: Python :: 3.7
 Classifier: Programming Language :: Python :: 3.8
 Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Communications :: Chat
+Classifier: Topic :: Communications :: File Sharing
+Classifier: Topic :: Multimedia
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Office/Business :: Groupware
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
 Classifier: License :: OSI Approved :: MIT License
 Description-Content-Type: text/markdown
 License-File: LICENSE
