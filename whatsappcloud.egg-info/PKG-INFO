@@ -1,9 +1,9 @@
 Metadata-Version: 2.1
 Name: whatsappcloud
-Version: 0.0.3
+Version: 0.0.4
 Summary: API wrapper for Whatsapp Cloud
 Home-page: https://github.com/PFython/whatsappcloud
-Download-URL: https://github.com/PFython/whatsappcloud/archive/0.0.3.tar.gz
+Download-URL: https://github.com/PFython/whatsappcloud/archive/0.0.4.tar.gz
 Author: Peter Fison
 Author-email: peter@awsom.solutions
 License: MIT License
