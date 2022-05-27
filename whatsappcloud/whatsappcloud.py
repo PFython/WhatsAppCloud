@@ -1,7 +1,7 @@
 import requests
 from cleverdict import CleverDict
 
-from config import CONTACTS, ENDPOINT, HEADERS, TEST_MESSAGE, TEST_URL
+from .config import CONTACTS, ENDPOINT, HEADERS, TEST_MESSAGE, TEST_URL
 
 
 class Whatsapp:

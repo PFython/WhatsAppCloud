@@ -1,5 +1,5 @@
 import pytest
-from .whatsappcloud import Whatsapp, CleverDict, CONTACTS, TEST_MESSAGE, TEST_URL
+from whatsappcloud import Whatsapp, CleverDict, CONTACTS, TEST_MESSAGE, TEST_URL
 
 
 class Test_core_functionality:
@@ -62,6 +62,19 @@ class Test_other_message_types:
             "type": "template",
             "template": {"name": "hello_world", "language": {"code": "en_US"}},
         }
+
+    def test_alt_template_and_language(self):
+        autosend = True
+        wa = Whatsapp.template(
+            name="new_urgent_item",
+            language_code="en",
+            autosend=autosend,
+        )
+        assert wa.data.template == {
+            "name": "new_urgent_item",
+            "language": {"code": "en"},
+        }
+        assert wa.data.to == CONTACTS[1]
 
     def test_template_other_contact(self):
         autosend = False
