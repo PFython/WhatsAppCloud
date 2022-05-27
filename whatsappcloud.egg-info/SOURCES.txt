@@ -2,7 +2,6 @@ LICENSE
 README.md
 setup.py
 whatsappcloud/__init__.py
-whatsappcloud/config.py
 whatsappcloud/config_template.py
 whatsappcloud/gist.py
 whatsappcloud/test_whatsappcloud.py

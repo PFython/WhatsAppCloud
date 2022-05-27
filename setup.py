@@ -7,7 +7,7 @@ from setuptools import setup
 
 NAME = "whatsappcloud"
 GITHUB_USERNAME = "PFython"
-VERSION = "0.0.2rc1"
+VERSION = "0.0.3"
 DESCRIPTION = "API wrapper for Whatsapp Cloud"
 LICENSE = "MIT License"
 AUTHOR = "Peter Fison"
