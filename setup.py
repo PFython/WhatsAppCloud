@@ -7,10 +7,10 @@ from setuptools import setup
 
 NAME = "whatsappcloud"
 GITHUB_USERNAME = "PFython"
-VERSION = "0.0.1"
+VERSION = "0.0.2rc1"
 DESCRIPTION = "API wrapper for Whatsapp Cloud"
 LICENSE = "MIT License"
-AUTHOR = "Pete Fison"
+AUTHOR = "Peter Fison"
 EMAIL = "peter@awsom.solutions"
 URL = "https://github.com/PFython/whatsappcloud"
 KEYWORDS = "Meta, whatsapp, Pfython, API, cloud, business, messaging, Facebook"

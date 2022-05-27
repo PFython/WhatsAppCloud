@@ -5,3 +5,6 @@
 /.pytestr_cache
 /whatsappcloud//__pycache__
 /config.py
+/setup - old.py
+whatsappcloud.egg-info/PKG-INFO
+whatsappcloud.egg-info/SOURCES.txt
