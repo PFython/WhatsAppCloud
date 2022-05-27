@@ -1,5 +1,5 @@
 import pytest
-from whatsapp import Whatsapp, CleverDict, CONTACTS, TEST_MESSAGE, TEST_URL
+from .whatsappcloud import Whatsapp, CleverDict, CONTACTS, TEST_MESSAGE, TEST_URL
 
 
 class Test_core_functionality:

@@ -17,7 +17,7 @@ You'll need to jump through a few (easy) hoops to get set up with Meta before yo
 
 # Sends a test message with test url (and preview) to your default contact
 
->>> Whatsapp("Hello Monty", CONTACT[4])
+>>> Whatsapp.text("Hello Monty", CONTACT[4])
 
 # Sends "Hello Monty" to your fifth contact
 
