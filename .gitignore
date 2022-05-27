@@ -1,7 +1,8 @@
 /config.py
 /*.egg-info*
 /dist
-/.vscode
+/.vscode*
+*settings.json
 /.pytest_cache
 /whatsappcloud/__pycache__
 \whatsappcloud\__pycache__
