@@ -47,8 +47,8 @@ class Whatsapp:
     def send(self):
         self.response = requests.post(ENDPOINT, headers=HEADERS, json=self.data)
 
-    @staticmethod
-    def text(body="", contact="", preview_url=True, autosend=True):
+    @classmethod
+    def text(cls, body="", contact="", preview_url=True, autosend=True):
         """
         Arguments
         ---------
@@ -61,93 +61,79 @@ class Whatsapp:
             contact, "text", body=body, preview_url=preview_url, autosend=autosend
         )
 
-    @staticmethod
-    def template(name="", contact="", language_code="", autosend=True):
+    @classmethod
+    def template(cls, name="", contact="", language_code="", autosend=True):
         name = name or "hello_world"
         language = {"code": language_code or "en_US"}
-        return Whatsapp(
-            contact, "template", name=name, language=language, autosend=autosend
-        )
+        return cls(contact, "template", name=name, language=language, autosend=autosend)
 
-    @staticmethod
-    def location(lat="", long="", name="", address="", contact="", autosend=True):
+    @classmethod
+    def location(cls, lat="", long="", name="", address="", contact="", autosend=True):
         kwargs = {
             "latitude": lat or "50.900089",
             "longitude": long or "-3.490490",
             "name": name or "Tiverton",
             "address": address or "Devon, UK",
         }
-        return Whatsapp(contact, "location", autosend=autosend, **kwargs)
+        return cls(contact, "location", autosend=autosend, **kwargs)
 
-    @staticmethod
-    def document(link="", contact="", autosend=True):
+    @classmethod
+    def document(cls, link="", contact="", autosend=True):
         link = (
             link
             or "https://binaries.templates.cdn.office.net/support/templates/en-gb/tf00112764_win32.dotx"
         )
-        return Whatsapp(contact, "document", link=link, autosend=autosend)
+        return cls(contact, "document", link=link, autosend=autosend)
 
-    @staticmethod
-    def image(link="", contact="", caption="", autosend=True):
+    @classmethod
+    def image(cls, link="", contact="", caption="", autosend=True):
         link = link or "https://imgs.xkcd.com/comics/python.png"
-        return Whatsapp(contact, "image", link=link, caption=caption, autosend=autosend)
+        return cls(contact, "image", link=link, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def image_id(id, contact="", caption="", autosend=True):
+    @classmethod
+    def image_id(cls, id, contact="", caption="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(contact, "image", id=id, caption=caption, autosend=autosend)
+        return cls(contact, "image", id=id, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def audio(link="", contact="", caption="", autosend=True):
+    @classmethod
+    def audio(cls, link="", contact="", caption="", autosend=True):
         link = link or "https://www2.cs.uic.edu/~i101/SoundFiles/ImperialMarch60.wav"
         # TODO: Work in progress
-        return Whatsapp(contact, "audio", link=link, caption=caption, autosend=autosend)
+        return cls(contact, "audio", link=link, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def audio_id(id, contact="", caption="", autosend=True):
+    @classmethod
+    def audio_id(cls, id, contact="", caption="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(contact, "audio", autosend=autosend)
+        return cls(contact, "audio", autosend=autosend)
 
-    @staticmethod
-    def video(link="", contact="", caption="", autosend=True):
+    @classmethod
+    def video(cls, link="", contact="", caption="", autosend=True):
         # TODO: Work in progress
         link = link or "https://www.youtube.com/watch?v=qetW6R9Jxs4"
-        return Whatsapp(contact, "video", link=link, caption=caption, autosend=autosend)
+        return cls(contact, "video", link=link, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def video_id(id, contact="", caption=""):
+    @classmethod
+    def video_id(cls, id, contact="", caption="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(contact, "video", id=id, caption=caption, autosend=autosend)
+        return cls(contact, "video", id=id, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def document_id(id, contact="", autosend=True):
+    @classmethod
+    def document_id(cls, id, contact="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(contact, "document", id=id, autosend=autosend)
+        return cls(contact, "document", id=id, autosend=autosend)
 
-    @staticmethod
-    def sticker(link, contact="", caption="", autosend=True):
+    @classmethod
+    def sticker(cls, link, contact="", caption="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(
-            contact, "sticker", link=link, caption=caption, autosend=autosend
-        )
+        return cls(contact, "sticker", link=link, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def sticker_id(id, contact="", caption="", autosend=True):
+    @classmethod
+    def sticker_id(cls, id, contact="", caption="", autosend=True):
         # TODO: Work in progress
-        return Whatsapp(contact, "image", id=id, caption=caption, autosend=autosend)
+        return cls(contact, "image", id=id, caption=caption, autosend=autosend)
 
-    @staticmethod
-    def upload_media(media):
-        # TODO: Work in progress
-        return
-
-    @staticmethod
-    def download_media(media):
-        # TODO: Work in progress
-        return
-
-    @staticmethod
-    def contact(contact_json="", contact="", autosend=True):
+    @classmethod
+    def contact(cls, contact_json="", contact="", autosend=True):
         """
         contact_json: list of dicts containing actual contact data
         contact (str): Phone number of the contact you're sending a message to
@@ -207,10 +193,10 @@ class Whatsapp:
                 ],
             }
         ]
-        return Whatsapp(contact, "contacts", contacts=contact_json, autosend=autosend)
+        return cls(contact, "contacts", contacts=contact_json, autosend=autosend)
 
-    @staticmethod
-    def button(button, contact):
+    @classmethod
+    def button(cls, button, contact):
         kwargs = {
             "type": "list",
             "header": {"type": "text", "text": button.get("header")},
@@ -218,6 +204,16 @@ class Whatsapp:
             "footer": {"text": button.get("footer")},
             "action": button.get("action"),
         }
-        return Whatsapp(
+        return cls(
             contact, "interactive", create_button(button), autosend=autosend, **kwargs
         )
+
+    @classmethod
+    def upload_media(cls, media):
+        # TODO: Work in progress
+        return
+
+    @classmethod
+    def download_media(cls, media):
+        # TODO: Work in progress
+        return
