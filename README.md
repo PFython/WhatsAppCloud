@@ -1,13 +1,13 @@
-# Send unlimited Whatsapp messages from Python - for free!
+# Send unlimited WhatsApp messages from Python - for free!
 
 It's true - you really can send free messages to five (verified) phone numbers for free using Meta's [WhatsApp Business Cloud API](https://developers.facebook.com/products/whatsapp/). The only proviso is that you agree to and follow their terms and conditions, especially regarding opting-in and acceptable use.
 
-The even better news is that I've waded my way through the API docs and several published "works in progress" on Github, basically going down a few rat-holes so you won't have to! The result is about 20 lines of actual Python which you can copy into your own scripts to enjoy outbound Whatsapp notifications without having to learn the quirks of yet another API from scratch yourself. Or if you _do_ want to get a deeper understanding, you can head over to my evolving [Github repository](https://github.com/PFython/Whatsapp) where you'll find a [fully installable PyPI package](https://pypi.org/whatsappcloud) to hopefully fast-track your journey and move you towards using the more advanced features that much quicker.  If you do, please spare a nano-second to click on the STAR button top right of the screen?  A little appreciation can be life-affirming, thank you!
+The even better news is that I've waded my way through the API docs and several published "works in progress" on Github, basically going down a few rat-holes so you won't have to! The result is about 20 lines of actual Python which you can copy into your own scripts to enjoy outbound WhatsApp notifications without having to learn the quirks of yet another API from scratch yourself. Or if you _do_ want to get a deeper understanding, you can head over to my evolving [Github repository](https://github.com/PFython/WhatsApp) where you'll find a [fully installable PyPI package](https://pypi.org/whatsappcloud) to hopefully fast-track your journey and move you towards using the more advanced features that much quicker.  If you do, please spare a nano-second to click on the STAR button top right of the screen?  A little appreciation can be life-affirming, thank you!
 
 ## TLDR: Here's the essential Python GIST to get you up and running
 
 ![](Screenshot%201.png)
-> https://github.com/PFython/WhatsappCloud/blob/master/whatsappcloud/gist.py
+> https://github.com/PFython/WhatsAppCloud/blob/master/whatsappcloud/gist.py
 
 
 ### You'll need to jump through a few (easy) hoops registering as a Meta/Facebook developer before you can actually send messages, but once you've done so, sending messages will be as easy as this:
@@ -26,10 +26,10 @@ The even better news is that I've waded my way through the API docs and several 
 # Send (or resend) a previously prepared message
 ```
 
-### And here's the config file you'll need to update and rename once you've created your first Whatsapp Cloud App on the developers' portal (details below):
+### And here's the config file you'll need to update and rename once you've created your first WhatsApp Cloud App on the developers' portal (details below):
 
 ![](Screenshot%202.png)
-> https://github.com/PFython/WhatsappCloud/blob/master/whatsappcloud/config_template.py
+> https://github.com/PFython/WhatsAppCloud/blob/master/whatsappcloud/config_template.py
 
 > *SOAP BOX alert! For some reason so many API tutorials seems to mix credentials and config data together in the same script. This is officially, quinetessentially, metaphysically, didactically and canonically **bad practice** and not to be emulated, so let's start the right way from the outset!*
 
@@ -67,9 +67,9 @@ My only other comments before you go off and start working your way through the 
 
 - You'll probably be eager to send regular Messages as soon as possible - especially if you're doing something like sending notifications and updates to yourself and team members programmatically.  In that case you'll need to actually **send a reply** to the Test Business number, or in other words, engage in a 'conversation' from the receiving end. It took me ages to work out why I was getting success (200) messages from my outgoing API calls but not receiving anything on the recipient's phone(s) other than Template messages. This was the reason, but the documentation didn't save me from learning the hard and slow way.  A 'reaction' might do the trick too, but at the time of writing I haven't tested that.  Please let me know?
 
-- It also looks like conversations are reset every 24 hours, so you'll either need to use Templates to get things going each day (initially), or keep the conversation going from the receiver's side.  One approach is to add a nice interactive button to your daily Template message, but that's beyond the scope of this article.  Another perhaps easier option is using the free Business version of Whatsapp on your recipients' phones and have them create an auto-reply.
+- It also looks like conversations are reset every 24 hours, so you'll either need to use Templates to get things going each day (initially), or keep the conversation going from the receiver's side.  One approach is to add a nice interactive button to your daily Template message, but that's beyond the scope of this article.  Another perhaps easier option is using the free Business version of WhatsApp on your recipients' phones and have them create an auto-reply.
 
-- If you want to unlock the full power fo the Whatsapp Cloud API and remove all restrictions, you'll need to create or link to a verified Business Account. If you do that you currently get 1,000 'conversations' free per month or in other words roughly 33 messages per day - one an hour plus a few spare. But unless you do something to get kicked off your Test Business Account, _unlimited_ free messages to/from five phone numbers is very generous and seems ideal for developers and micro-businesses.
+- If you want to unlock the full power of the WhatsApp Cloud API and remove all restrictions, you'll need to create or link to a verified Business Account. If you do that you currently get 1,000 'conversations' free per month or in other words roughly 33 messages per day - one an hour plus a few spare. But unless you do something to get kicked off your Test Business Account, _unlimited_ free messages to/from five phone numbers is very generous and seems ideal for developers and micro-businesses.
 
 ## The Code
 
@@ -83,7 +83,7 @@ My only other comments before you go off and start working your way through the 
 
 ## And finally...
 
-I've always been a fan of "simple tools for busy people", so `whatsappcloud.py` and `config.py` are intentionally short and offered "bare-bones" for now. I don't doubt some excellent Python modules will come to the fore which wrap the Whatsapp Cloud API more comprehensively, but in the meantime if you feel the urge to build on this humble repository and want to suggest Pull Requests etc. I'd be happy to collaborate.
+I've always been a fan of "simple tools for busy people", so `whatsappcloud.py` and `config.py` are intentionally short and offered "bare-bones" for now. I don't doubt some excellent Python modules will come to the fore which wrap the WhatsApp Cloud API more comprehensively, but in the meantime if you feel the urge to build on this humble repository and want to suggest Pull Requests etc. I'd be happy to collaborate.
 
 If you've benefitted from reading this and want to pay it forward, I'd be thrilled if you'd...
 
