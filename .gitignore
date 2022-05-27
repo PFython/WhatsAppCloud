@@ -4,6 +4,7 @@
 /.vscode
 /.pytest_cache
 /whatsappcloud/__pycache__
+\whatsappcloud\__pycache__
 /config.py
 /setup - old.py
 /whatsappcloud.egg-info/PKG-INFO

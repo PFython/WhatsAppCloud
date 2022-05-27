@@ -74,7 +74,6 @@ class Test_other_message_types:
             "name": "new_urgent_item",
             "language": {"code": "en"},
         }
-        assert wa.data.to == CONTACTS[1]
 
     def test_template_other_contact(self):
         autosend = False
