@@ -1,5 +1,5 @@
 """
-Rename this file to config.py once completed.
+Update your credentials in this file.
 Add config.py to .gitignore etc before including in Github or other repository.
 """
 

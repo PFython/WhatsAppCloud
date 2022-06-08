@@ -86,7 +86,7 @@ So, with the benefit of hindsight here are my suggestions/comments before you st
 
 If you’ve benefitted from reading this article and want to pay it forward, I’d be delighted if you’d STAR my [**Github**](https://github.com/PFython/WhatsAppCloud) page or…
 
-![](https://cdn-images-1.medium.com/max/2000/0*UFfv__Fq-88tK4FE)
+<a href="https://www.buymeacoffee.com/pfython" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-yellow.png" alt="Buy Me A Coffee" width="217px" ></a>
 
 … or if you’re reading this on **Medium**, please give it a few claps?
 >  Did you know you can press and hold the “clap” icon to give more than one clap? I double-dare you to find the maximum — try it now!
