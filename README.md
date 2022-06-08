@@ -19,7 +19,7 @@ Hopefully this article will fast-track your learning journey and get you using t
 
 >  **SOAP BOX ALERT!** A shocking number of API tutorials mix credentials and config data together in the same script. In my opinion and many others’, this is **bad practice** and not to be emulated, so let’s start with a better way right from the outset…
 
-Here’s an example of a standalone config file you can use once you’ve created your first WhatsApp Cloud App on the developers’ portal (details below). You’ll just need to add your own credentials then save as ***config.py***:
+Here’s an example of a standalone config file you can use once you’ve created your first WhatsApp Cloud App on the developers’ portal (details below). If you've installed `whatsappcloud` using `pip` it's like to be in your AppData\Roaming folder e.g. `C:\Users\peter\AppData\Roaming\Python\Python39\site-packages\whatsappcloud\whatsappcloud_config.py`:
 
 ![](Screenshot%202.png)
 
